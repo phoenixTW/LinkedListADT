@@ -1,0 +1,3 @@
+*.exe
+*TestRunner.c
+*.o
