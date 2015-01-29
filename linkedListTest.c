@@ -98,6 +98,8 @@ void test_getElementAt_should_return_2_for_index_value_of_0 () {
 	assertEqual(add_to_list(&list, node2), 1);
 
 	assertEqual(*(int*)getElementAt(list, 0), data1);	
+	free(node1);
+	free(node2);
 }
 
 void test_getElementAt_should_return_4_for_index_value_of_1 () {
@@ -108,6 +110,9 @@ void test_getElementAt_should_return_4_for_index_value_of_1 () {
 	assertEqual(add_to_list(&list, node2), 1);
 
 	assertEqual(*(int*)getElementAt(list, 1), data2);	
+
+	free(node1);
+	free(node2);
 }
 
 void test_getElementAt_should_return_NULL_for_index_value_of_2 () {
@@ -118,6 +123,9 @@ void test_getElementAt_should_return_NULL_for_index_value_of_2 () {
 	assertEqual(add_to_list(&list, node2), 1);
 
 	assertEqual(getElementAt(list, 2), 0x0);	
+
+	free(node1);
+	free(node2);
 }
 
 void test_indexOf_should_return_1_for_value_2 () {
@@ -128,6 +136,9 @@ void test_indexOf_should_return_1_for_value_2 () {
 	assertEqual(add_to_list(&list, node2), 1);
 
 	assertEqual(indexOf(list, &data1), 0);
+
+	free(node1);
+	free(node2);
 }
 
 void test_indexOf_should_return_minus_of_1_for_value_6 () {
@@ -138,11 +149,14 @@ void test_indexOf_should_return_minus_of_1_for_value_6 () {
 	assertEqual(add_to_list(&list, node2), 1);
 
 	assertEqual(indexOf(list, &data3), -1);
+
+	free(node1);
+	free(node2);
 }
 
 // void * deleteElementAt(LinkedList, int)
 
-void test_deleteElementAt_should_return_the_deleted_data_from_a_list () {
+void test_deleteElementAt_should_return_4_from_a_list_and_delete_that_node () {
 	int data1 = 2, data2 = 4, data3 = 6;
 	LinkedList list = createList();
 	Node_ptr node1 = create_node(&data1), node2 = create_node(&data2), node3 = create_node(&data3);
@@ -150,5 +164,57 @@ void test_deleteElementAt_should_return_the_deleted_data_from_a_list () {
 	assertEqual(add_to_list(&list, node2), 1);
 	assertEqual(add_to_list(&list, node3), 1);
 
-	assertEqual(*(int*)deleteElementAt(list, 1), data2);
+	assertEqual(*(int*)deleteElementAt(&list, 1), data2);
+	assertEqual(list.count, 2);
+
+	free(node1);
+	free(node2);
+	free(node3);
+}
+
+void test_deleteElementAt_should_return_NULL_when_index_is_3 () {
+	int data1 = 2, data2 = 4, data3 = 6;
+	LinkedList list = createList();
+	Node_ptr node1 = create_node(&data1), node2 = create_node(&data2), node3 = create_node(&data3);
+	assertEqual(add_to_list(&list, node1), 1);
+	assertEqual(add_to_list(&list, node2), 1);
+	assertEqual(add_to_list(&list, node3), 1);
+
+	assertEqual(deleteElementAt(&list, 3), 0x0);
+
+	free(node1);
+	free(node2);
+	free(node3);
+}
+
+void test_deleteElementAt_should_return_2_when_index_is_0 () {
+	int data1 = 2, data2 = 4, data3 = 6;
+	LinkedList list = createList();
+	Node_ptr node1 = create_node(&data1), node2 = create_node(&data2), node3 = create_node(&data3);
+	assertEqual(add_to_list(&list, node1), 1);
+	assertEqual(add_to_list(&list, node2), 1);
+	assertEqual(add_to_list(&list, node3), 1);
+
+	assertEqual(*(int*)deleteElementAt(&list, 0), data1);
+	assertEqual(list.head, node2);
+
+	free(node1);
+	free(node2);
+	free(node3);
+}
+
+void test_deleteElementAt_should_return_6_when_index_is_2 () {
+	int data1 = 2, data2 = 4, data3 = 6;
+	LinkedList list = createList();
+	Node_ptr node1 = create_node(&data1), node2 = create_node(&data2), node3 = create_node(&data3);
+	assertEqual(add_to_list(&list, node1), 1);
+	assertEqual(add_to_list(&list, node2), 1);
+	assertEqual(add_to_list(&list, node3), 1);
+
+	assertEqual(*(int*)deleteElementAt(&list, 2), data3);
+	assertEqual(list.tail, node2);
+
+	free(node1);
+	free(node2);
+	free(node3);
 }
