@@ -24,3 +24,4 @@ struct linkedList {
 LinkedList createList(void);
 Node_ptr create_node(void*);
 int add_to_list(LinkedList*, Node_ptr);
+void *get_first_element(LinkedList);

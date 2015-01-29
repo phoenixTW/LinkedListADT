@@ -32,3 +32,6 @@ int add_to_list(LinkedList *,Node *);
 	First node will be head of the list and
 	last added list will be tail of the list.
 
+void *get_first_element(LinkedList list);
+
+	- This function returns the first element in the list. 

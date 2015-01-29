@@ -64,3 +64,16 @@ void test_add_to_list_should_add_two_nodes_into_a_linkedList_with_a_int_type_dat
 	free(node1);
 	free(node2);
 }
+
+void test_get_first_element_should_return_the_first_element_of_the_list () {
+	int data1 = 2, data2 = 4;
+	LinkedList list = createList();
+	Node_ptr node1 = create_node(&data1), node2 = create_node(&data2);
+	assertEqual(add_to_list(&list, node1), 1);
+	assertEqual(add_to_list(&list, node2), 1);
+
+
+	assertEqual(*(int*)get_first_element(list), data1);
+	free(node1);
+	free(node2);
+}

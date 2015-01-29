@@ -28,3 +28,7 @@ int add_to_list(LinkedList *list, Node_ptr node) {
 
 	return 1;
 }
+
+void *get_first_element(LinkedList list) {
+	return list.head->data;
+}
