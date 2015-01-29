@@ -380,49 +380,59 @@ free(intNode);
 // res = get_last_element(list);
 // assertEqual(res, "Prasenjit");
 // }
-// void add(void* data) {
-// *(int*)data += 1;
-// }
+void add(void* data) {
+*(int*)data += 1;
+}
 
-// void test_traverse_001() {
-// log("traverse through a int node and increases each element by one");
-// int c = 9;
-// LinkedList list = createList();
-// Node *intNode = create_node(&c);
-// add_to_list(&list,intNode);
-// traverse(list,add);
-// assertEqual(*(int*)(*(Node*)(list.head)).data, 10);
-// free(intNode);
-// }
-// void test_getElementAt_001() {
-// log("getElementAt gives the data at given position for integer");
-// int c = 9,d = 10;
-// LinkedList list = createList();
-// Node *node1 = create_node(&c),*node2 = create_node(&d);
-// add_to_list(&list,node1);
-// add_to_list(&list,node2);
-// assertEqual(*((int*)getElementAt(list,0)),9);
-// assertEqual(*((int*)getElementAt(list,1)),10);
-// }
-// void test_indexOf_001() {
-// log("indexOf gives the position of the given element in an integer link list");
-// int c = 9,d = 10;
-// LinkedList list = createList();
-// Node *node1 = create_node(&c),*node2 = create_node(&d);
-// add_to_list(&list,node1);
-// add_to_list(&list,node2);
-// assertEqual(((int *)indexOf(list,&c)),0);
-// assertEqual(((int *)indexOf(list,&d)),1);
-// }
-// void test_deleteElementAt_001() {
-// log("deleteElementAt deletes the element at the given position");
-// int c = 9,d = 10,e = 11;
-// LinkedList list = createList();
-// Node *node1 = create_node(&c),*node2 = create_node(&d),*node3 = create_node(&e);
-// add_to_list(&list,node1);
-// add_to_list(&list,node2);
-// add_to_list(&list,node3);
-// assertEqual(((int *)indexOf(list,&e)),2);
-// deleteElementAt(list,1);
-// assertEqual(((int *)indexOf(list,&e)),1);
-// }
+void test_traverse_001() {
+log("traverse through a int node and increases each element by one");
+int c = 9;
+LinkedList list = createList();
+Node *intNode = create_node(&c);
+add_to_list(&list,intNode);
+traverse(list,add);
+assertEqual(*(int*)(*(Node*)(list.head)).data, 10);
+free(intNode);
+}
+
+void test_getElementAt_001() {
+log("getElementAt gives the data at given position for integer");
+int c = 9,d = 10;
+LinkedList list = createList();
+Node *node1 = create_node(&c),*node2 = create_node(&d);
+add_to_list(&list,node1);
+add_to_list(&list,node2);
+assertEqual(*((int*)getElementAt(list,0)),9);
+assertEqual(*((int*)getElementAt(list,1)),10);
+free(node1);
+free(node2);
+}
+
+void test_indexOf_001() {
+log("indexOf gives the position of the given element in an integer link list");
+int c = 9,d = 10;
+LinkedList list = createList();
+Node *node1 = create_node(&c),*node2 = create_node(&d);
+add_to_list(&list,node1);
+add_to_list(&list,node2);
+assertEqual(((int *)indexOf(list,&c)),0);
+assertEqual(((int *)indexOf(list,&d)),1);
+free(node1);
+free(node2);
+}
+
+void test_deleteElementAt_001() {
+log("deleteElementAt deletes the element at the given position");
+int c = 9,d = 10,e = 11;
+LinkedList list = createList();
+Node *node1 = create_node(&c),*node2 = create_node(&d),*node3 = create_node(&e);
+add_to_list(&list,node1);
+add_to_list(&list,node2);
+add_to_list(&list,node3);
+assertEqual(((int *)indexOf(list,&e)),2);
+deleteElementAt(&list,1);
+assertEqual(((int *)indexOf(list,&e)),1);
+free(node1);
+free(node2);
+free(node3);
+}
