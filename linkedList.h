@@ -28,3 +28,4 @@ void *get_first_element(LinkedList);
 void *get_last_element(LinkedList);
 void traverse(LinkedList, void (*)(void*));
 void *getElementAt(LinkedList, int);
+int indexOf(LinkedList, void *);

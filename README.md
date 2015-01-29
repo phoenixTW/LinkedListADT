@@ -53,3 +53,9 @@ void * getElementAt(LinkedList, int )
 		For ex: getElementAt(2) should return the element at index 2. 
 		This is basically like an array's [] operator. Return NULL if index is invalid.
 
+
+int indexOf(LinkedList, void *)
+
+		- Given an element, find the first index at which this element 
+		occurs in a list. Return -1 if not found.
+

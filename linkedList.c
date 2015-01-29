@@ -66,3 +66,19 @@ void *getElementAt(LinkedList list, int index) {
 		walker = walker->next;
 	}
 }
+
+int indexOf(LinkedList list, void *data) {
+	int count = -1;
+	Node_ptr walker = list.head;
+
+	while(walker != NULL) {
+		count++;
+
+		if(walker->data == data)
+			return count;
+
+		walker = walker->next;
+	}
+
+	return -1;
+}

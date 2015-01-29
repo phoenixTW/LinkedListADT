@@ -119,3 +119,15 @@ void test_getElementAt_should_return_NULL_for_index_value_of_2 () {
 
 	assertEqual(getElementAt(list, 2), 0x0);	
 }
+
+// int indexOf(LinkedList, void *)
+
+void test_indexOf_should_return_1_for_value_2 () {
+	int data1 = 2, data2 = 4;
+	LinkedList list = createList();
+	Node_ptr node1 = create_node(&data1), node2 = create_node(&data2);
+	assertEqual(add_to_list(&list, node1), 1);
+	assertEqual(add_to_list(&list, node2), 1);
+
+	assertEqual(indexOf(list, &data1), 0);
+}
