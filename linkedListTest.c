@@ -218,3 +218,16 @@ void test_deleteElementAt_should_return_6_when_index_is_2 () {
 	free(node2);
 	free(node3);
 }
+
+void test_deleteElementAt_should_return_2_when_index_is_0_when_there_is_1_element_in_the_list () {
+	int data = 2;
+	LinkedList list = createList();
+	Node_ptr node = create_node(&data);
+	assertEqual(add_to_list(&list, node), 1);
+
+	assertEqual(*(int*)deleteElementAt(&list, 0), data);
+	assertEqual(list.tail, 0x0);
+	assertEqual(list.head, 0x0);
+
+	free(node);
+}

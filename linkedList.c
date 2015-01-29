@@ -93,9 +93,14 @@ void* deleteElementAt(LinkedList *list, int index) {
 
 	while(walker != NULL) {
 		count++;
-		
+
 		if(index == 0){
 			list->head = walker->next;
+		
+			if((list->count == 1) && (index == 0)) {
+				list->tail = NULL;
+			}
+		
 			list->count--;
 			return walker->data;
 		}
