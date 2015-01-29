@@ -77,3 +77,32 @@ void test_get_first_element_should_return_the_first_element_of_the_list () {
 	free(node1);
 	free(node2);
 }
+
+void test_get_last_element_should_return_the_last_element_of_the_list () {
+	int data1 = 2, data2 = 4;
+	LinkedList list = createList();
+	Node_ptr node1 = create_node(&data1), node2 = create_node(&data2);
+	assertEqual(add_to_list(&list, node1), 1);
+	assertEqual(add_to_list(&list, node2), 1);
+
+	assertEqual(*(int*)get_last_element(list), data2);
+	free(node1);
+	free(node2);
+}
+
+// void traverse(LinkedList, void (*)(void *data))
+
+void add (void* data){
+	*(int*)data += 1;
+}
+
+// void test_traverse_should_increament_the_data_of_the_list_by_1 () {
+// 	int data1 = 2, data2 = 4;
+// 	LinkedList list = createList();
+// 	Node_ptr node1 = create_node(&data1), node2 = create_node(&data2);
+// 	assertEqual(add_to_list(&list, node1), 1);
+// 	assertEqual(add_to_list(&list, node2), 1);
+// 	traverse(list, add);
+
+// 	assertEqual(*((int*)(node1->data)), 3);
+// }

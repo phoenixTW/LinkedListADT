@@ -20,15 +20,31 @@ int add_to_list(LinkedList *list, Node_ptr node) {
 	if(list->head == NULL){
 		list->head = node;
 		list->tail = node;
+		list->count++;
 		return 1;
 	}
 
 	list->tail->next = node;
 	list->tail = node;
+	list->count++;
+
 
 	return 1;
 }
 
 void *get_first_element(LinkedList list) {
 	return list.head->data;
+}
+
+void *get_last_element(LinkedList list) {
+	return list.tail->data;
+}
+
+void traverse(LinkedList list, void (*callback)(void *data)) {
+	void* walker = list.head;
+
+	while(walker != NULL) {
+		callback(list.head->data);
+		walker = list.head->next;
+	}
 }

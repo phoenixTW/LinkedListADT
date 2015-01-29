@@ -25,3 +25,5 @@ LinkedList createList(void);
 Node_ptr create_node(void*);
 int add_to_list(LinkedList*, Node_ptr);
 void *get_first_element(LinkedList);
+void *get_last_element(LinkedList);
+void traverse(LinkedList, void (*)(void*));

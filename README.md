@@ -35,3 +35,11 @@ int add_to_list(LinkedList *,Node *);
 void *get_first_element(LinkedList list);
 
 	- This function returns the first element in the list. 
+
+void traverse(LinkedList, void (*)(void *data))
+
+		- Write a generic traverse function that can go through a list
+		 and process each element. Note that the second argument to
+		 traverse is a function pointer that takes a reference to data 
+		 as its argument. This traverse function should, for instance, 
+		 let you traverse a list and print all its elements. 
