@@ -15,3 +15,16 @@ Node_ptr create_node(void *data) {
 
 	return node;
 }
+
+int add_to_list(LinkedList *list, Node_ptr node) {
+	if(list->head == NULL){
+		list->head = node;
+		list->tail = node;
+		return 1;
+	}
+
+	list->tail->next = node;
+	list->tail = node;
+
+	return 1;
+}
