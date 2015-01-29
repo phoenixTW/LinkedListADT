@@ -43,3 +43,13 @@ void traverse(LinkedList, void (*)(void *data))
 		 traverse is a function pointer that takes a reference to data 
 		 as its argument. This traverse function should, for instance, 
 		 let you traverse a list and print all its elements. 
+
+		 					v2.0
+
+void * getElementAt(LinkedList, int )
+
+		- Given an index as an integer, return the data reference 
+		contained at that position in the list. 
+		For ex: getElementAt(2) should return the element at index 2. 
+		This is basically like an array's [] operator. Return NULL if index is invalid.
+

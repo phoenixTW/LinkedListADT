@@ -48,3 +48,21 @@ void traverse(LinkedList list, void (*callback)(void *data)) {
 		walker = list.head->next;
 	}
 }
+
+void *getElementAt(LinkedList list, int index) {
+	int count = -1;
+	Node_ptr walker = list.head;
+
+	if(list.count < index + 1)
+		return NULL;
+	
+	while(count < index) {
+		count++;
+
+		if(count == index) {
+			return walker->data;
+		}
+
+		walker = walker->next;
+	}
+}

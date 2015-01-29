@@ -90,19 +90,32 @@ void test_get_last_element_should_return_the_last_element_of_the_list () {
 	free(node2);
 }
 
-// void traverse(LinkedList, void (*)(void *data))
+void test_getElementAt_should_return_2_for_index_value_of_0 () {
+	int data1 = 2, data2 = 4;
+	LinkedList list = createList();
+	Node_ptr node1 = create_node(&data1), node2 = create_node(&data2);
+	assertEqual(add_to_list(&list, node1), 1);
+	assertEqual(add_to_list(&list, node2), 1);
 
-void add (void* data){
-	*(int*)data += 1;
+	assertEqual(*(int*)getElementAt(list, 0), data1);	
 }
 
-// void test_traverse_should_increament_the_data_of_the_list_by_1 () {
-// 	int data1 = 2, data2 = 4;
-// 	LinkedList list = createList();
-// 	Node_ptr node1 = create_node(&data1), node2 = create_node(&data2);
-// 	assertEqual(add_to_list(&list, node1), 1);
-// 	assertEqual(add_to_list(&list, node2), 1);
-// 	traverse(list, add);
+void test_getElementAt_should_return_4_for_index_value_of_1 () {
+	int data1 = 2, data2 = 4;
+	LinkedList list = createList();
+	Node_ptr node1 = create_node(&data1), node2 = create_node(&data2);
+	assertEqual(add_to_list(&list, node1), 1);
+	assertEqual(add_to_list(&list, node2), 1);
 
-// 	assertEqual(*((int*)(node1->data)), 3);
-// }
+	assertEqual(*(int*)getElementAt(list, 1), data2);	
+}
+
+void test_getElementAt_should_return_NULL_for_index_value_of_2 () {
+	int data1 = 2, data2 = 4;
+	LinkedList list = createList();
+	Node_ptr node1 = create_node(&data1), node2 = create_node(&data2);
+	assertEqual(add_to_list(&list, node1), 1);
+	assertEqual(add_to_list(&list, node2), 1);
+
+	assertEqual(getElementAt(list, 2), 0x0);	
+}
