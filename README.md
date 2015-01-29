@@ -59,3 +59,8 @@ int indexOf(LinkedList, void *)
 		- Given an element, find the first index at which this element 
 		occurs in a list. Return -1 if not found.
 
+void * deleteElementAt(LinkedList, int)
+
+		- Given an index, delete the element at that list. 
+		Return the data referenced by the node at that position. 
+

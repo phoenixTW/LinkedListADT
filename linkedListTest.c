@@ -120,8 +120,6 @@ void test_getElementAt_should_return_NULL_for_index_value_of_2 () {
 	assertEqual(getElementAt(list, 2), 0x0);	
 }
 
-// int indexOf(LinkedList, void *)
-
 void test_indexOf_should_return_1_for_value_2 () {
 	int data1 = 2, data2 = 4;
 	LinkedList list = createList();
@@ -140,4 +138,17 @@ void test_indexOf_should_return_minus_of_1_for_value_6 () {
 	assertEqual(add_to_list(&list, node2), 1);
 
 	assertEqual(indexOf(list, &data3), -1);
+}
+
+// void * deleteElementAt(LinkedList, int)
+
+void test_deleteElementAt_should_return_the_deleted_data_from_a_list () {
+	int data1 = 2, data2 = 4, data3 = 6;
+	LinkedList list = createList();
+	Node_ptr node1 = create_node(&data1), node2 = create_node(&data2), node3 = create_node(&data3);
+	assertEqual(add_to_list(&list, node1), 1);
+	assertEqual(add_to_list(&list, node2), 1);
+	assertEqual(add_to_list(&list, node3), 1);
+
+	assertEqual(*(int*)deleteElementAt(list, 1), data2);
 }
