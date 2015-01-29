@@ -131,3 +131,13 @@ void test_indexOf_should_return_1_for_value_2 () {
 
 	assertEqual(indexOf(list, &data1), 0);
 }
+
+void test_indexOf_should_return_minus_of_1_for_value_6 () {
+	int data1 = 2, data2 = 4, data3 = 6;
+	LinkedList list = createList();
+	Node_ptr node1 = create_node(&data1), node2 = create_node(&data2);
+	assertEqual(add_to_list(&list, node1), 1);
+	assertEqual(add_to_list(&list, node2), 1);
+
+	assertEqual(indexOf(list, &data3), -1);
+}
