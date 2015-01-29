@@ -22,3 +22,4 @@ struct linkedList {
 };
 
 LinkedList createList(void);
+Node_ptr create_node(void*);

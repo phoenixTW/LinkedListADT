@@ -3,11 +3,15 @@
 #include <stdlib.h>
 
 LinkedList createList (void) {
-	LinkedList* list;
-	list = malloc(sizeof(LinkedList));
-	list->head = NULL;
-	list->tail = NULL;
-	list->count = 0;
+	LinkedList list = {NULL, NULL, 0};
+	return list;
+}
 
-	return *list;
+Node_ptr create_node(void *data) {
+	Node_ptr node;
+	node = malloc(sizeof(Node));
+	node->data = data;
+	node->next = NULL;
+
+	return node;
 }
