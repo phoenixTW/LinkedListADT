@@ -232,8 +232,6 @@ void test_deleteElementAt_should_return_2_when_index_is_0_when_there_is_1_elemen
 	free(node);
 }
 
-// int asArray(LinkedList, void **)
-
 void test_asArray_should_return_1_for_one_node_list () {
 	int data = 2;
 	int* array;
@@ -269,8 +267,11 @@ void test_asArray_should_return_3_for_three_node_list () {
 	free(array);
 }
 
+// LinkedList * filter(LinkedList, int (*)(void *))
+
+
 int numberGreaterThan (void *element) {
-	return (int*)element > 2;
+	return *(int*)element > 2;
 }
 
 void test_filter_should_return_a_new_linked_list () {
@@ -282,5 +283,35 @@ void test_filter_should_return_a_new_linked_list () {
 	assertEqual(add_to_list(&list, node2), 1);
 	assertEqual(add_to_list(&list, node3), 1);
 
-	// greaterThan2 = filter(list, numberGreaterThan);
+	greaterThan2 = filter(list, numberGreaterThan);
+
+	assert(greaterThan2->head->data==&data2);
+	assertEqual(greaterThan2->tail->data, &data3);
+	assertEqual(greaterThan2->count, 2);
+
+	free(greaterThan2);
+	free(node1);
+	free(node2);
+	free(node3);	
 }
+
+// void test_filter_should_return_a_new_linked_list_with_head_value_if_NULL () {
+// 	int data1 = 2, data2 = 4, data3 = 6;
+// 	LinkedList list = createList(), *greaterThan2;
+// 	Node_ptr node1 = create_node(&data1), node2 = create_node(&data2), node3 = create_node(&data3);
+
+// 	assertEqual(add_to_list(&list, node1), 1);
+// 	assertEqual(add_to_list(&list, node2), 1);
+// 	assertEqual(add_to_list(&list, node3), 1);
+
+// 	greaterThan2 = filter(list, numberGreaterThan);
+
+// 	assertEqual(greaterThan2->head, 0x0);
+// 	assertEqual(greaterThan2->tail, 0x0);
+// 	assertEqual(greaterThan2->count, 0);
+
+// 	free(greaterThan2);
+// 	free(node1);
+// 	free(node2);
+// 	free(node3);	
+// }

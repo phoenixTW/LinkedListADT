@@ -3,6 +3,7 @@ typedef struct node Node;
 typedef struct students Students;
 typedef Students* Student_ptr;
 typedef Node* Node_ptr;
+typedef int (predicate)(void *data);
 
 struct students {
 	int roll;
@@ -31,4 +32,4 @@ void *getElementAt(LinkedList, int);
 int indexOf(LinkedList, void *);
 void * deleteElementAt(LinkedList*, int);
 int asArray(LinkedList, void **);
-
+LinkedList * filter(LinkedList, int (*)(void *));

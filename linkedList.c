@@ -132,3 +132,18 @@ int asArray(LinkedList list, void **array) {
 
 	return counter;
 }
+
+LinkedList* filter(LinkedList list, int (*callback)(void *data)) {
+	LinkedList *newList = (LinkedList*)calloc(sizeof(LinkedList), 1);
+	Node_ptr walker = list.head;
+	*newList = createList();
+
+	while(walker != NULL) {
+		if(callback(walker->data))
+			add_to_list(newList, walker);
+
+		walker = walker->next;
+	}
+
+	return newList;
+}
