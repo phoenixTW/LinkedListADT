@@ -64,3 +64,13 @@ void * deleteElementAt(LinkedList, int)
 		- Given an index, delete the element at that list. 
 		Return the data referenced by the node at that position. 
 
+
+							v3.0
+
+LinkedList * filter(LinkedList, int (*)(void *))
+
+		- Given a linked list and a function pointer, 
+		this function will filter the original list and 
+		return the reference to a new LinkedList that consists only of 
+		references to data that satisfy the filtering criteria.
+
