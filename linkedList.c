@@ -107,7 +107,7 @@ void* deleteElementAt(LinkedList *list, int index) {
 
 		if((index == (list->count - 1)) && (index == count)){
 			list->tail = prev;
-			list->count--;
+			list->count--; 	
 			return walker->data;
 		}
 		
@@ -120,4 +120,15 @@ void* deleteElementAt(LinkedList *list, int index) {
 		prev = walker;
 		walker = walker->next;
 	}
+}
+
+int asArray(LinkedList list, void **array) {
+	int counter = 0;
+
+	while(counter < list.count) {
+		array[counter] = getElementAt(list, counter);
+		counter++;
+	}
+
+	return counter;
 }

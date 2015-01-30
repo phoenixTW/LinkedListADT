@@ -231,3 +231,56 @@ void test_deleteElementAt_should_return_2_when_index_is_0_when_there_is_1_elemen
 
 	free(node);
 }
+
+// int asArray(LinkedList, void **)
+
+void test_asArray_should_return_1_for_one_node_list () {
+	int data = 2;
+	int* array;
+	LinkedList list = createList();
+	Node_ptr node = create_node(&data);
+	array = calloc(sizeof(int*), 1);
+
+	assertEqual(add_to_list(&list, node), 1);
+	assertEqual(asArray(list, &array), 1);
+	assertEqual((int*)array[0], data);
+
+	free(node);
+}
+
+void test_asArray_should_return_3_for_three_node_list () {
+	int data1 = 2, data2 = 4, data3 = 6;
+	int* array;
+	LinkedList list = createList();
+	Node_ptr node1 = create_node(&data1), node2 = create_node(&data2), node3 = create_node(&data3);
+	array = calloc(sizeof(int), 3);
+
+	assertEqual(add_to_list(&list, node1), 1);
+	assertEqual(add_to_list(&list, node2), 1);
+	assertEqual(add_to_list(&list, node3), 1);
+	assertEqual(asArray(list, array), 3);
+	assertEqual(*(int*)array[0], data1);
+	assertEqual(*(int*)array[1], data2);
+	assertEqual(*(int*)array[2], data3);
+
+	free(node1);
+	free(node2);
+	free(node3);
+	free(array);
+}
+
+int numberGreaterThan (void *element) {
+	return (int*)element > 2;
+}
+
+void test_filter_should_return_a_new_linked_list () {
+	int data1 = 2, data2 = 4, data3 = 6;
+	LinkedList list = createList(), *greaterThan2;
+	Node_ptr node1 = create_node(&data1), node2 = create_node(&data2), node3 = create_node(&data3);
+
+	assertEqual(add_to_list(&list, node1), 1);
+	assertEqual(add_to_list(&list, node2), 1);
+	assertEqual(add_to_list(&list, node3), 1);
+
+	// greaterThan2 = filter(list, numberGreaterThan);
+}
